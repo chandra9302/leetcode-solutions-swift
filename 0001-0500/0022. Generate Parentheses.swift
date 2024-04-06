@@ -19,7 +19,7 @@ class Solution {
     func generateParenthesis(_ n: Int) -> [String] {
         var res: [String] = []
 
-        func backtrack(_ path: [String], _ target: Int) {
+        func backtrack(_ path: [String]) {
             var path = path
             var count = 0
 
@@ -36,12 +36,12 @@ class Solution {
                     continue
                 }
                 path.append(c)
-                backtrack(path, target - 1)
+                backtrack(path)
                 path.remove(at: path.count - 1)
             }
         }
 
-        backtrack([], n * 2)
+        backtrack([])
         return res
     }
 
